@@ -2,7 +2,9 @@ import requests
 import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
-
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 driver = webdriver.Chrome('/Users/SGC/Desktop/Job_Planet_Crawler/chromedriver')
 PAGE=1
 
@@ -12,7 +14,9 @@ def get_soup(search='python',start_year=0,end_year=0,start_star=0,end_star=5,pag
     end_star=end_star*10
     URL=f"https://www.jobplanet.co.kr/job/search?page={PAGE*page}&yoe={start_year}%3B{end_year}&q={search}&rs={start_star}%3B{end_star}"
     print(URL)
+    driver.implicitly_wait(10)
     driver.get(URL)
+    mycss=driver.find_element_by_css_selector('a > p.jobs_title')
     html=driver.page_source
     soup=BeautifulSoup(html,'lxml')
     return soup
@@ -49,8 +53,11 @@ def get_max_page(soup):
     max_page=int(max_page)+1
     return max_page
 
-maxpage=get_max_page(get_soup())
+def get_link(soup):
+    link=soup.select_one('#job_search_app > div > div.job_search_content > div.job_search_list > div.list > ul > li:nth-child(1) > a')['href']
+    return link
 
-for i in range (1,maxpage):
-    print(get_title(get_soup(page=i)))
-    time.sleep(3)
+
+link=get_link(get_soup())
+sample=f'https://www.jobplanet.co.kr/{link}'
+print(sample)
