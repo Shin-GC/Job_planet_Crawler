@@ -9,7 +9,12 @@
 * get_company(soup)
 ##### 회사를 가져오는 함수
 * get_score(soup)
-### 
+##### 회사 점수를 가져오는 함수
+* get_max_page(soup)
+##### 페이지의 최대 페이지를 
+
+* get_Job_Planet(soup)
+##### title,company,score의 세 값을 가져오는 함수를 모아둔 함수로 Dictionary값이 리턴된다.
 
 ## 실행화면
 ![실행화면](https://user-images.githubusercontent.com/58453569/106359609-22ad0100-6357-11eb-90a3-f129ec4242f1.PNG)
