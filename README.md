@@ -3,7 +3,8 @@
 
 ## Method
 ##### 매개변수 값을 설정해주지 않을 경우 Default로 설정된 값으로 URL을 받아옵니다.
-##### search='검색할 내용', start_year=연차 시작,end_yea= 끝 연차 [ 0, 0 일땐 신입], start_star=회사의 최소점수, end_star=최대점수 [0,0 일땐 전체] ,page=긁어올 페이지
+##### search='검색할 내용', start_year=연차 시작,end_yea= 끝 연차 [ 0, 0 일땐 신입], 
+##### start_star=회사의 최소점수, end_star=최대점수 [0,0 일땐 전체] ,page=긁어올 페이지
 * get_soup(search='python',start_year=0,end_year=0,start_star=0,end_star=5,page=1)
 
 ##### 제목을 가져오는 메서드
